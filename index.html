@@ -474,7 +474,7 @@ h1,h2,h3{
       <button class="back-btn" onclick="goTo(1)">←</button>
       <div class="dots"><span></span><span class="on"></span></div>
       <p class="eyebrow">tiup lilinnya</p>
-      <h2 style="font-size:26px;">Buat satu permintaan 🕯️</h2>
+      <h2 style="font-size:26px;">Jangan lupa doa untuk permintaanmu yak 🕯️</h2>
 
       <svg class="cake-illust" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi kue ulang tahun">
         <!-- alas / bayangan piring -->
@@ -518,7 +518,7 @@ h1,h2,h3{
           <circle class="smoke" cx="0" cy="-13" r="3"></circle>
         </g>
       </svg>
-      <p class="cake-hint">sentuh tiap lilin buat ditiup, lalu buat satu permintaan ✨</p>
+      <p class="cake-hint">sentuh tiap lilin buat ditiup, terus buka suratnya yakk ✨</p>
 
       <div class="letter-zone">
         <div class="envelope" id="envelope" onclick="openLetter()">
@@ -555,26 +555,26 @@ h1,h2,h3{
 const CONFIG = {
 
   // ---------- HALAMAN 1 ----------
-  recipientName: "Nora",                 // nama yang diberi ucapan
-  heroEyebrow: "spesial buat Nora",
-  heroTitle: "Selamat Ulang Tahun, Nora!",
-  heroPhoto: "",                         // isi dengan path/URL foto, kosongkan untuk pakai gradasi polos
-  heroCaption: "buat Nora 🎀",
-  heroMessage: "Semoga hari ini secerah senyummu dan sehangat semua doa yang dipanjatkan untukmu. Aku siapin sedikit kejutan, yuk buka pelan-pelan~",
+  recipientName: "Tiara",                 // nama yang diberi ucapan
+  heroEyebrow: "spesial buat Tiara",
+  heroTitle: "Selamat Ulang Tahun, Tiara!",
+  heroPhoto: "Arait 1.jpg",              // nama FILE foto (taruh file ini di folder yang sama dengan index.html)
+  heroCaption: "Tiara",
+  heroMessage: "Semoga hari ini secerah senyummu dan sehangat semua doa yang dipanjatkan untukmu. Something buat kamu nihh~",
 
   // ---------- HALAMAN 2 — KUE & SURAT ----------
   // foto kecil yang muncul di bagian atas surat saat amplop dibuka
-  letterPhoto: "",                       // isi dengan path/URL foto, mis. "photos/kita.jpg"
-  letterPhotoCaption: "kita, waktu itu", // keterangan kecil di bawah foto
+  letterPhoto: "Arait 2.jpg",            // nama FILE foto kedua (taruh file ini di folder yang sama dengan index.html)
+  letterPhotoCaption: "kelas 7", // keterangan kecil di bawah foto
 
-  letterTitle: "Untuk Nora,",
+  letterTitle: "Untuk Tiara,",
   letterBody:
-`Selamat ulang tahun, sayang. 🤍
+`Selamat ulang tahun tiaraaa ameliaaa 🤍
 
-Makasih udah jadi alasan aku banyak senyum sendiri akhir-akhir ini. Semoga di umur yang baru ini kamu makin bahagia, makin disayang, dan semua mimpi-mimpimu pelan-pelan kebuka satu-satu.
+Makasih udah jadi alasan aku banyak senyum sendiri akhir-akhir ini. Semoga di umur yang baru ini kamu makin bahagia, makin sukses, segala doa di kabulkan, dan di SMK nanti dpt temen lebih baikk
 
-Makasih juga udah selalu ada, di setiap momen kecil yang difoto ini sampai yang enggak sempat kefoto sekalipun. Aku sayang kamu.`,
-  letterSign: "dari aku, selalu. 💌",
+Mungkin ya nanti pokoknya berharap banget aku ga pengen kita asing gtu aja ttp saling support lah yakk, semogaa. Pokoknya doa kuu untuk mu selalu ada tirr 🤍🤍`,
+  letterSign: "dari aku aja 🤍",
   // catatan kecil tambahan di bawah surat (opsional, boleh dikosongkan "")
   letterNote: ""
 };
@@ -592,7 +592,11 @@ function applyConfig(){
   document.getElementById('heroTitle').textContent = CONFIG.heroTitle;
   document.getElementById('heroCaption').textContent = CONFIG.heroCaption;
   document.getElementById('heroMsg').textContent = CONFIG.heroMessage;
-  if(CONFIG.heroPhoto){ document.getElementById('heroPhoto').src = CONFIG.heroPhoto; }
+  if(CONFIG.heroPhoto){
+    const heroPhotoEl = document.getElementById('heroPhoto');
+    heroPhotoEl.src = CONFIG.heroPhoto;
+    heroPhotoEl.onerror = () => { heroPhotoEl.removeAttribute('src'); };
+  }
 
   // foto di bagian atas surat
   const letterPhotoEl = document.getElementById('letterPhoto');
